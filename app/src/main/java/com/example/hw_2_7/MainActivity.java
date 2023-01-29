@@ -80,12 +80,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_nine:
                 onClickNumber("9");
                 break;
-            case R.id.btn_point:
-
             case R.id.btn_ac:
                 textView.setText("0");
                 first=0;
                 second=0;
+                operation=0;
                 break;
         }
         isOperationClick=false;
