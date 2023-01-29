@@ -182,6 +182,7 @@
                 android:text="@string/btn_zero"
                 style="@style/Dark.Gray.Button" />
             <com.google.android.material.button.MaterialButton
+                android:onClick="onNumberClick"
                 android:id="@+id/btn_point"
                 android:text="@string/btn_point"
                 android:layout_marginHorizontal="14dp"

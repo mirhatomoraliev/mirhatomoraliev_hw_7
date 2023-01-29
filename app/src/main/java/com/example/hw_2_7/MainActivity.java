@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView, sum;
     private Integer first, second, operation;
-    private Boolean isOperationClick;
+    private Boolean isOperationClick, isNumberClick=false;
 
 
     @SuppressLint("MissingInflatedId")
@@ -40,20 +40,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (getIntent().getBooleanExtra("finish", false)){
-            onDestroy();
-        }
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("shamal","Main ac finished");
+        Log.d("shamal", "first Destroy");
     }
 
     public void onNumberClick(View view) {
+        if (isNumberClick){
+            findViewById(R.id.fl_btn).setVisibility(View.GONE);
+        }
         switch (view.getId()){
             case R.id.btn_zero:
                 onClickNumber("0");
@@ -85,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_nine:
                 onClickNumber("9");
                 break;
+            case R.id.btn_point:
+
             case R.id.btn_ac:
                 textView.setText("0");
                 first=0;
@@ -92,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         isOperationClick=false;
+        isNumberClick=true;
     }
     public void onClickNumber(String number){
         if (textView.getText().toString().equals("0") || isOperationClick){

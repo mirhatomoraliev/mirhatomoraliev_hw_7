@@ -22,11 +22,7 @@ public class SecondActivity extends AppCompatActivity {
         findViewById(R.id.second_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean finish = true;
-                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-                intent.putExtra("finish", finish);
-                startActivity(intent);
-                onDestroy();
+                finishAffinity();
             }
         });
     }
@@ -34,7 +30,6 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        Log.d("shamal", "second activity destroy");
+        Log.d("shamal", "second Destroy");
     }
 }
